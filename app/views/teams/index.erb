@@ -1,0 +1,11 @@
+<h1>You are in the teams page!</h1>
+<h2>Select your favorite teams!</h2>
+
+<form action="/homepage" method="post">
+<% @teams.each do |team| %>
+    <label for="football"><h3>Football</h3></label><br>
+    <input type="checkbox" name="team[name]" id="team_name"> <%= team.name %>
+    <br>
+    <input type="submit" value="Submit">
+<% end %>
+</form>
