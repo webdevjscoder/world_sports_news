@@ -1,0 +1,14 @@
+<h1>You are in the teams page!</h1>
+<h2>Select your favorite teams, <%= current_user.username %></h2>
+
+<form action="/add_team" method="post">
+<label for="football"><h3>Football</h3></label><br>
+<% @teams.each do |team| %>
+    <% if !@selected_ids.include?(team.id)  %>
+        <input type="checkbox" name="[team_ids][]" id="<%= team.id %>" value="<%= team.id %>"><%= team.name %>
+        <br>
+    <% end %>
+<% end %>
+    <br>
+    <input type="submit" value="Submit">
+</form>
