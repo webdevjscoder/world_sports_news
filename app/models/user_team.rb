@@ -1,4 +1,4 @@
 class UserTeam < ActiveRecord::Base
-    has_many :users
-    has_many :teams
+    belongs_to :user
+    belongs_to :team
 end
