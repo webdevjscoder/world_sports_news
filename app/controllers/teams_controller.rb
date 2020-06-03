@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
 
-    # shows all the teams
+    # shows all the teams for user to select from
     get '/teams' do
         @teams = Team.all
         user = User.find_by_id(current_user.id)
@@ -12,12 +12,14 @@ class TeamsController < ApplicationController
         erb :'teams/add_team'
     end
 
+    # allows user to unfollow team(s)
     get '/unfollow-teams' do
         user = User.find_by_id(current_user.id)
         @user_teams = user.teams.where("user_id == #{current_user.id}")
         erb :'teams/remove_team'
     end
 
+    # removes teams the user selects
     post '/remove_teams' do
         user = User.find_by_id(current_user.id)
         params[:team_ids].each do |team_id|
