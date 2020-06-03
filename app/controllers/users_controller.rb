@@ -13,9 +13,7 @@ class UsersController < ApplicationController
     # creates a new user
     post '/signup' do
         user = User.create(params[:user])
-        # binding.pry
-        if user.id != nil
-            session[:id] = user.id
+        if user
             redirect to "/homepage/#{user.id}"
         else
             erb :'users/signup'
@@ -42,6 +40,7 @@ class UsersController < ApplicationController
         end
     end
 
+    # adds team to the current user
     post '/add_team' do
         user_teams = []
         user = User.find_by_id(current_user.id)
@@ -67,6 +66,7 @@ class UsersController < ApplicationController
         end
     end
 
+    # allow user to exit their own information
     get '/homepage/:id/edit' do
         if !logged_in?
             erb :'users/login'
@@ -79,6 +79,20 @@ class UsersController < ApplicationController
         end
     end
 
+    put '/homepage/:id' do
+        user = User.find_by_id(params[:id])
+        user.update(params[:user])
+        redirect to "/homepage/#{user.id}"
+    end
+
+    delete '/homepage/:id' do
+        user = User.find_by_id(params[:id])
+        session.clear
+        user.destroy
+        redirect to "/"
+    end
+
+    # logs out the user
     get '/logout' do
         session.clear
         erb :'index.html'

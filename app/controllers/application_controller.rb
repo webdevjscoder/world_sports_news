@@ -9,16 +9,19 @@ class ApplicationController < Sinatra::Base
         set :session_secret, 'teams'
     end
 
+    # renders the welcome page where user either logs in or signs up
     get '/' do
         erb :'index.html'
     end
 
     helpers do
         
+        # checks to see if user is logged in
         def logged_in?
             !!current_user
         end
 
+        # sets current_user
         def current_user
             @current_user ||= User.find(session[:user_id]) if session[:user_id]
         end
