@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
-        erb :'index.html'
+        erb :'welcome_screen'
     end
 
     helpers do

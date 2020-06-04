@@ -1,0 +1,111 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+html, body {
+    margin: 0px;
+}
+
+div.wide-nav {
+    background-color: #403D3C;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1.title {
+    color: #E1DFDF;
+    line-height: 1;
+    padding-left: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+h1.title:before {
+    background-color: #000000;
+    -webkit-transform: skew(-25deg, 0);
+    -ms-transform: skewX(-25deg) skewY(0);
+    transform: skew(-43deg, 0);
+    content: '';
+    display: block;
+    height: 44px;
+    width: 142px;
+    position: absolute;
+    top: -6px;
+    z-index: -1;
+    left: -25px;
+}
+
+nav#content-links ul {
+    line-height: 2;
+}
+
+.nav-links li {
+    list-style: none;
+    margin: 5px;
+    display: inline-block;
+}
+
+.nav-links li a {
+    color: #E1DFDF;
+    padding: 10px;
+    border-left: 1px solid black;
+}
+
+.nav-links li a:hover {
+    color: #FFFFFF;
+}
+
+main#homepage-content {
+    box-sizing: border-box;
+    margin-left: 65px;
+    margin-right: 65px;
+    margin-top: 55px;
+}
+
+h2.welcome-message {
+    margin-left: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+section.team-info {
+    box-sizing: border-box;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 10px;
+
+}
+
+label.nba-title {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+ul.followed-teams {
+    list-style: none;
+    display: flex;
+    flex-flow: column wrap;
+    padding-left: 0;
+}
+
+li.team-title {
+    align-self: center;
+}
+
+li.team-record {
+    align-self: center;
+}
+
+li.team-news {
+    align-self: center;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}

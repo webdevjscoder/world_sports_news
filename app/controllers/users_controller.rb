@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     # renders signup form
     get '/signup' do
         if logged_in?
-            erb :'users/homepage'
+            erb :'users/homepage', layout: false
         else
-            erb :'users/signup'
+            erb :'users/signup', layout: false
         end
     end
 
@@ -16,18 +16,18 @@ class UsersController < ApplicationController
         # binding.pry
         if user.id != nil
             session[:id] = user.id
-            redirect to "/homepage/#{user.id}"
+            redirect to "/homepage/#{current_user.id}"
         else
-            erb :'users/signup'
+            erb :'users/signup', layout: false
         end
     end
 
     # renders login form
     get '/login' do
         if logged_in?
-            erb :'users/homepage'
+            erb :'users/homepage', layout: false
         else
-            erb :'users/login'
+            erb :'users/login', layout: false
         end
     end
 
@@ -36,9 +36,9 @@ class UsersController < ApplicationController
         user = User.find_by(email: params[:user][:email]).try(:authenticate, params[:user][:password])
         if user != false
             session[:user_id] = user.id
-            redirect to "/homepage/#{user.id}"
+            redirect to "/homepage/#{current_user.id}"
         else
-            erb :'users/login'
+            erb :'users/login', layout: false
         end
     end
 
@@ -63,13 +63,13 @@ class UsersController < ApplicationController
             @user_teams = user.teams.where("user_id == #{current_user.id}")
             erb :"users/homepage"
         else
-            erb :"users/login"
+            erb :"users/login", layout: false
         end
     end
 
-    get '/homepage/:id/edit' do
+    get '/homepage/profile/:id/edit' do
         if !logged_in?
-            erb :'users/login'
+            erb :'users/login', layout: false
         else
             if user = User.find_by(current_user.id)
                 erb :'users/edit'
@@ -81,7 +81,8 @@ class UsersController < ApplicationController
 
     get '/logout' do
         session.clear
-        erb :'index.html'
+        @message = "Hello World"
+        erb :'welcome_screen', :layout => :welcome_screen
     end
     
 end

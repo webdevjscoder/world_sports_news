@@ -1,12 +1,28 @@
 <!doctype html>
 <html>
   <head>
-    <title>Sports News</title>
+    <title>World Sports News</title>
+    <link rel="stylesheet" href="/stylesheet/index.css">
   </head>
   <body>
+    <header id="content-title">
+    <div class="wide-nav">
+    <a href="/homepage/<%= current_user.id %>"><h1 class="title">WSN</h1></a>
+    <nav id="content-links">
+      <ul class="nav-links">
+        <li><a href="/teams">Follow Teams</a>
+        <li><a href="/unfollow-teams">Unfollow Teams</a>
+        <li><a href="/homepage/profile/<%= current_user.id %>/edit">Edit Profile</a>
+        <li><a href="/logout">Log Out</a>
+      </ul>
+    </nav>
+    </div>
+    </header>
+    <main id="full-content">
     <%= yield %>
+    </main>
   </body>
   <footer>
-    <span><a href="/logout">Log Out</a></span>
+  <span class="copyright">Copyright &copy; 2020 World Sports News</span>
   </footer>
 </html>
