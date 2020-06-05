@@ -5,11 +5,21 @@
     <link rel="stylesheet" href="/stylesheets/admin_screen.css">
   </head>
   <body>
-  <header id="welcome-screen">
-  <main id="homepage-content">
+    <header id="admin-screen">
+    <div class="narrow-nav">
+        <a href="/profile/<%= current_user.id %>" class="site-logo">WSN</a>
+        <nav id="admin-screen-nav-bar">
+            <ul class="nav-links">
+              <li><a href="/logout">Log Out</a>
+            </ul>
+        </nav>
+    </div>
+  </header>
+  <main id="main-content">
     <%= yield %>
+  </main>
   <footer>
-    <span id="layout-copyright">Copyright &copy; 2020 World Sports News.</span>
+    <span id="admin-copyright">Copyright &copy; 2020 World Sports News.</span>
   </footer>
   </main>
   </body>

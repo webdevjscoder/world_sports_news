@@ -1,6 +1,7 @@
 <h1>You are in the show page! Success!</h1>
 <h2>Welcome, <%= current_user.username %></h2>
 <br>
+<% if !current_user.teams.empty? %>
 <% @user_teams.each do |team_info| %>
 <ul>
     <li><%= team_info.name %>
@@ -8,10 +9,5 @@
     <li><%= team_info.news %>
 </ul>
 <% end %>
-<br>
-<a href="/teams">Select to follow teams here.</a>
-<br>
-<a href="/profile/<%= current_user.id %>/edit">Edit homepage</a>
-<br>
-<a href="/unfollow-teams">Unfollow teams here.</a>
+<% end %>
 
