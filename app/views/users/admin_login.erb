@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Sports News</title>
+    <link rel="stylesheet" href="/stylesheets/forms.css">
+  </head>
+  <body>
+  <main id="homepage-content">
+    <div class="form-info">
+    <h1>Admin Login</h1>
+        <form action="/admin/login" method="post" class="form">
+            <fieldset class="user-info">
+                <label for="email">Email</label>
+                <input type="email" name="user[email]" id="email" required>
+                <label for="password">Password</label>
+                <input type="password" name="user[password]" id="password" required>
+                <input type="submit" value="Login">
+                <a href="/admin/signup">Don't have an admin account? Sign up</a>
+            </fieldset>
+        </form>
+    </div>
+  </main>
+  </body>
+</html>
