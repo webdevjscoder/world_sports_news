@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200602051315) do
+ActiveRecord::Schema.define(version: 20200605022818) do
 
   create_table "comments", force: :cascade do |t|
     t.string  "content"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20200602051315) do
     t.string "name"
     t.string "team_record"
     t.string "news"
+    t.string "logo"
   end
 
   create_table "user_teams", force: :cascade do |t|

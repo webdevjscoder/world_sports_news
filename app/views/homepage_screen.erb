@@ -7,13 +7,11 @@
   <body>
   <header id="welcome-screen">
     <div class="narrow-nav">
-        <a href="/profile/<%= current_user.id %>" class="site-logo">WSN</a>
+        <a href="/" class="site-logo">WSN</a>
         <nav id="wecome-screen-nav-bar">
             <ul class="nav-links">
-              <li><a href="/teams">Follow Teams</a>
-              <li><a href="/unfollow-teams">Unfollow Teams</a>
-              <li><a href="/profile/<%= current_user.id %>/edit">Edit Profile</a>
-              <li><a href="/logout">Log Out</a>
+                <li><a href="/login">Login</a>
+                <li><a href="/signup">Sign Up</a>
             </ul>
         </nav>
     </div>
@@ -21,7 +19,7 @@
   <main id="homepage-content">
     <%= yield %>
   <footer>
-    <span id="layout-copyright">Copyright &copy; 2020 World Sports News.</span>
+    <span id="copyright">Copyright &copy; 2020 World Sports News.</span>
   </footer>
   </main>
   </body>

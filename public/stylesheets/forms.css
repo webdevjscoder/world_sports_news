@@ -1,0 +1,82 @@
+body {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #000
+}
+
+main#homepage-content {
+    border: 1px solid black;
+    margin: 0;
+    background-color: #000;
+}
+
+.form-info {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: #fff;
+    padding: 44px;
+    color: #565656;
+    margin: 150px 330px;
+    border-radius: 10px;
+}
+
+.form-info h1 {
+    padding-bottom: 25px;
+}
+
+.form {
+    margin-top: 25px;
+}
+
+fieldset.user-info {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 100%;
+}
+
+label {
+    font-size: 25px;
+    font-weight: 100;
+    color: #565656;
+    letter-spacing: 0;
+    margin: 40px auto 45px;
+    padding-left: 22px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    display: block;
+    width: 300px;
+    height: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+    margin: 20px 22px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    transition: opacity 0.4s;
+    background: white;
+}
+
+input[type="submit"] {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    background-color: #15CD72;
+    border: 0;
+    cursor: pointer;
+    width: 100px;
+    height: 55px;
+    display: block;
+    position: relative;
+    left: 115px;
+}
+
+span#copyright {
+    color: #fff;
+}

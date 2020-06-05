@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
             team_to_delete = user.teams.where(["user_id = ? and team_id = ?", current_user.id, team_id.to_i])
             user.teams.delete(team_to_delete)
         end
-        redirect to "/homepage/#{current_user.id}"
+        redirect to "/profile/#{current_user.id}"
     end
 
 end

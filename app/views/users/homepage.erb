@@ -1,16 +1,14 @@
-<h1>You are in the show page! Success!</h1>
-<h2>Welcome, <%= current_user.username %></h2>
-<br>
-<% @user_teams.each do |team_info| %>
-<ul>
-    <li><%= team_info.name %>
-    <li><%= team_info.team_record %>
-    <li><%= team_info.news %>
-</ul>
-<% end %>
-<br>
-<a href="/teams">Select to follow teams here.</a>
-<br>
-<a href="/homepage/<%= current_user.id %>/edit">Edit homepage</a>
-<br>
-<a href="/unfollow-teams">Unfollow teams here.</a>
+<div class="team-info">
+    <h1>Welcome to World Sports News</h1>
+        <section class="team-container">
+            <% @teams.each do |team_info| %>
+                <ul class="team-list">
+                    <p class="team-standing">Team Record</>
+                    <li><img src="<%= team_info.logo %>" width="30px" height="30px">
+                    <li class="team-name"><%= team_info.name %>
+                    <li class="team-record"><%= team_info.team_record %>
+                    <li class="team-news"><%= team_info.news %>
+                </ul>
+            <% end %>
+        </section>
+    </div>

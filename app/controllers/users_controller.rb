@@ -4,9 +4,9 @@ class UsersController < ApplicationController
     # renders signup form
     get '/signup' do
         if logged_in?
-            erb :'users/homepage'
+            erb :'users/profile'
         else
-            erb :'users/signup'
+            erb :'users/signup', :layout => :homepage_screen
         end
     end
 
@@ -14,18 +14,18 @@ class UsersController < ApplicationController
     post '/signup' do
         user = User.create(params[:user])
         if user
-            redirect to "/homepage/#{user.id}"
+            redirect to "/profile/#{user.id}"
         else
-            erb :'users/signup'
+            erb :'users/signup', :layout => :homepage_screen
         end
     end
 
     # renders login form
     get '/login' do
         if logged_in?
-            erb :'users/homepage'
+            erb :'users/profile'
         else
-            erb :'users/login'
+            erb :'users/login', :layout => :homepage_screen
         end
     end
 
@@ -34,9 +34,9 @@ class UsersController < ApplicationController
         user = User.find_by(email: params[:user][:email]).try(:authenticate, params[:user][:password])
         if user != false
             session[:user_id] = user.id
-            redirect to "/homepage/#{user.id}"
+            redirect to "/profile/#{user.id}"
         else
-            erb :'users/login'
+            erb :'users/login', :layout => :homepage_screen
         end
     end
 
@@ -52,40 +52,40 @@ class UsersController < ApplicationController
                 user_teams
             end
         end
-        redirect to "/homepage/#{current_user.id}"
+        redirect to "/profile/#{current_user.id}"
     end
 
     # shows user homepage when they login or create and account
-    get '/homepage/:id' do
+    get '/profile/:id' do
         if logged_in?
             user = User.find_by_id(current_user.id)
             @user_teams = user.teams.where("user_id == #{current_user.id}")
-            erb :"users/homepage"
+            erb :"users/profile"
         else
-            erb :"users/login"
+            erb :'users/login', :layout => :homepage_screen
         end
     end
 
     # allow user to exit their own information
-    get '/homepage/:id/edit' do
+    get '/profile/:id/edit' do
         if !logged_in?
-            erb :'users/login'
+            erb :'users/login', :layout => :homepage_screen
         else
             if user = User.find_by(current_user.id)
                 erb :'users/edit'
             else
-                erb :'users/homepage'
+                erb :'users/profile'
             end
         end
     end
 
-    put '/homepage/:id' do
+    put '/profile/:id' do
         user = User.find_by_id(params[:id])
         user.update(params[:user])
-        redirect to "/homepage/#{user.id}"
+        redirect to "/profile/#{user.id}"
     end
 
-    delete '/homepage/:id' do
+    delete '/profile/:id' do
         user = User.find_by_id(params[:id])
         session.clear
         user.destroy
@@ -95,7 +95,8 @@ class UsersController < ApplicationController
     # logs out the user
     get '/logout' do
         session.clear
-        erb :'index.html'
+        @teams = Team.all
+        erb :'users/homepage', :layout => :homepage_screen
     end
     
 end

@@ -1,0 +1,107 @@
+body {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+}
+
+main#homepage-content {
+    margin: 0;
+    background-color: #fff;
+}
+
+.user-profile-info {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: #fff;
+    padding: 44px;
+    color: #565656;
+    margin: 150px 330px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2)
+}
+
+.user-profile-info h1 {
+    padding-bottom: 25px;
+}
+
+.user-form {
+    margin-top: 25px;
+}
+
+fieldset.user-info {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    width: 100%;
+}
+
+.user-info img {
+    display: block;
+    position: relative;
+    top: 52px;
+    right: 10px;
+}
+
+input[type="text"],
+input.submit-button {
+    display: block;
+    width: 300px;
+    height: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+    margin: 20px 22px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    transition: opacity 0.4s;
+    background: white;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+input.submit-button {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    background-color: #15CD72;
+    border: 0;
+    cursor: pointer;
+    width: 100px;
+    height: 55px;
+    display: block;
+    position: relative;
+    margin: 20px auto;
+    top: 25px;
+}
+
+input.delete-button {
+    font-size: 22px;
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(189, 7, 7);
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+    width: 100px;
+    height: 55px;
+    display: block;
+    position: relative;
+    top: 170px;
+}
+
+footer {
+    display: block;
+    text-align: center;
+    position: relative;
+    background-color: #000;
+    bottom: 0px;
+    color: #fff;
+    height: 60px;
+    padding: 40px;
+}

@@ -1,0 +1,122 @@
+html, body {
+    margin: 0px;
+}
+
+.narrow-nav {
+    background-color: #000;
+    white-space: nowrap;
+    font: 16px/60px Effra,Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.site-logo {
+    margin: 2px;
+    padding-left: 10px;
+    font-size: 28px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-right: 8px;
+}
+
+.nav-links li a {
+    padding-right: 10px;
+    padding-left: 10px;
+    border-left: 1px solid #7c7c7c;
+}
+
+.nav-links a:hover {
+    color:#b3aaaa;  
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-family: Georgia, serif;
+}
+
+main#homepage-content {
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-left: 28px;
+}
+
+section.team-container {
+    margin: 0 85px;
+    padding: 1px;
+}
+
+div.team-info {
+    border: 1px solid black;
+    display: block;
+    position: relative;
+    right: 15px;
+    margin: 45px;
+}
+
+ul.team-list {
+    border: 1px solid black;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 45px 45px;
+    padding: 0 90px;
+}
+
+p.team-standing {
+    text-align: right;
+    text-decoration: underline;
+}
+
+li img {
+    display: block;
+    position: relative;
+    bottom: 36px;
+}
+
+ul.team-list li {
+    list-style: none;
+}
+
+li.team-name {
+    display: block;
+    position: relative;
+    width: fit-content;
+    bottom: 62px;
+    left: 35px;
+    font-size: 22px;
+    font-family: Georgia, serif;
+}
+
+li.team-record {
+    text-align: right;
+    display: block;
+    position: relative;
+    bottom: 55px;
+    left: 726px;
+    width: fit-content;
+}
+
+li.team-news {
+    text-align: center;
+    font-size: 26px;
+    font-family: Georgia, serif;
+    margin: 35px;
+    padding: 25px;
+}
+
+span#copyright {
+    display: block;
+    text-align: center;
+    position: relative;
+    bottom: 25px;
+}

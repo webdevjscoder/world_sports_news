@@ -11,7 +11,8 @@ class ApplicationController < Sinatra::Base
 
     # renders the welcome page where user either logs in or signs up
     get '/' do
-        erb :'index.html'
+        @teams = Team.all
+        erb :'users/homepage', :layout => :homepage_screen
     end
 
     helpers do

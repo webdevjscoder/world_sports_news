@@ -1,20 +1,30 @@
-<h1>You are in the edit page</h1>
-<%= current_user.username %> is editing this page.
-<br>
-<form action=<%= "/homepage/#{current_user.id}" %> method="post">
-  <input type="hidden" name="_method" value="put">
-  <label for="username">Username:</label>
-  <input type="text" name="user[username]" value=<%= current_user.username %>>
-  <br>
-  <label for="email">Email:</label>
-  <input type="text" name="user[email]" value=<%= current_user.email %>>
-  <br>
-  <input type="submit" value="Update">
-</form>
-<br>
-<br>
-<form action=<%= "/homepage/#{current_user.id}" %> method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value=<%= "Delete #{current_user.username}" %>>
-</form>
-<a href="/homepage/<%= current_user.id %>">Back to Homepage</a>
+<!doctype html>
+<html>
+  <head>
+    <title>Sports News</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+  </head>
+  <body>
+  <main id="homepage-content">
+    <div class="user-profile-info">
+    <h1>Profile</h1>
+        <form action="/profile/<%= current_user.id %>" method="post" class="user-form">
+            <fieldset class="user-info">
+              <form action=<%= "/profile/#{current_user.id}" %> method="post" class="user-form">
+                <input type="hidden" name="_method" value="put">
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/user-male.png"/>
+                <input type="text" name="user[username]" value=<%= current_user.username %>>
+                <img src="https://img.icons8.com/android/24/000000/filled-message.png"/>
+                <input type="text" name="user[email]" value=<%= current_user.email %>>
+                <input type="submit" value="Update" class="submit-button">
+              </form>
+            </fieldset>
+        </form>
+        <form action=<%= "/profile/#{current_user.id}" %> method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value=<%= "Delete #{current_user.username}" %> class="delete-button">
+        </form>
+    </div>
+  </main>
+  </body>
+</html>
