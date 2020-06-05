@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         end
     end
 
-    # adds team to the current user
+    # add team to current user
     post '/add_team' do
         user_teams = []
         user = User.find_by_id(current_user.id)

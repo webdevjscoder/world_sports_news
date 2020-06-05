@@ -1,5 +1,5 @@
 <h1>Unfollow</h1>
-<form action="/remove_teams" method="post">
+<form action="/remove-teams" method="post">
 <label for="football"><h3>Football</h3></label><br>
 <%  @user_teams.each do |team| %>
         <input type="checkbox" name="[team_ids][]" id="<%= team.id %>" value="<%= team.id %>"><%= team.name %>
