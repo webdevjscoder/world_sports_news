@@ -11,11 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200605022818) do
+ActiveRecord::Schema.define(version: 20200605173436) do
 
   create_table "comments", force: :cascade do |t|
     t.string  "content"
     t.integer "user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "role_name"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -36,6 +40,13 @@ ActiveRecord::Schema.define(version: 20200605022818) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
+  end
+
+  create_table "users_roles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
   end
 
 end

@@ -46,6 +46,7 @@ fieldset.user-info {
 }
 
 input[type="text"],
+input[type="email"],
 input.submit-button {
     display: block;
     width: 300px;
