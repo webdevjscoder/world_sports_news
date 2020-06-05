@@ -1,4 +1,6 @@
 require './config/environment'
+require 'nokogiri'
+require 'open-uri'
 
 class ApplicationController < Sinatra::Base
 
