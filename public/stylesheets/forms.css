@@ -37,6 +37,17 @@ fieldset.user-info {
     width: 100%;
 }
 
+.user-info a {
+    color: #565656;
+    display: block;
+    text-align: center;
+    padding: 15px;
+}
+
+.user-info a:hover {
+    text-decoration: underline;
+}
+
 label {
     font-size: 25px;
     font-weight: 100;
@@ -44,6 +55,20 @@ label {
     letter-spacing: 0;
     margin: 40px auto 45px;
     padding-left: 22px;
+}
+
+input[type="email"] {
+    display: block;
+    width: 300px;
+    height: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 18px;
+    margin: 20px 22px;
+    border: 2px solid #e7e7e7;
+    border-radius: 3px;
+    transition: opacity 0.4s;
+    background: white;
 }
 
 input[type="text"],

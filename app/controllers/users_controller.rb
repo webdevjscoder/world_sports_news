@@ -10,6 +10,38 @@ class UsersController < ApplicationController
         end
     end
 
+    get '/admin/signup' do
+        if logged_in?
+            erb :'users/admin', :layout => :admin_screen
+        else
+            erb :'users/admin_signup', :layout => :homepage_screen
+        end
+    end
+
+    post '/admin/signup' do
+        user = User.create(first_name: params[:user][:first_name], last_name: params[:user][:last_name], email: params[:user][:email], password: params[:user][:password])
+        user_role = Role.create(role_name: params[:user][:role])
+        users_role = UsersRole.create(user_id: user.id, role_id: user_role.id)
+        if users_role
+            session[:id] = user.id
+            @user_first_name = params[:user][:first_name]
+            binding.pry
+            erb :"users/admin", :layout => :admin_screen
+        else
+            erb :'users/admin_signup', :layout => :homepage_screen
+        end
+    end
+
+    get '/admin/profile' do
+        if logged_in?
+            user = User.find_by_id(current_user.id)
+            binding.pry
+            erb :'users/admin', :layout => :admin_screen
+        else
+            erb :'users/admin_signup', :layout => :homepage_screen
+        end
+    end
+
     # creates a new user
     post '/signup' do
         user = User.create(params[:user])
@@ -53,6 +85,17 @@ class UsersController < ApplicationController
             end
         end
         redirect to "/profile/#{current_user.id}"
+    end
+
+    get '/admin/profile/:id' do
+        binding.pry
+        if logged_in?
+            user = User.find_by_id(current_user.id)
+            binding.pry
+            erb :'users/admin', :layout => :admin_screen
+        else
+            erb :'users/admin_signup', :layout => :homepage_screen
+        end
     end
 
     # shows user homepage when they login or create and account

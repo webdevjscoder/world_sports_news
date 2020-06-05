@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Sports News</title>
+    <link rel="stylesheet" href="/stylesheets/forms.css">
+  </head>
+  <body>
+  <main id="homepage-content">
+    <div class="form-info">
+    <h1>Admin Sign up</h1>
+        <form action="/admin/signup" method="post" class="form">
+            <fieldset class="user-info">
+                <label for="first_name">First Name</label>
+                <input type="text" name="user[first_name]" id="first_name" required>
+                <label for="last_name">Last Name</label>
+                <input type="text" name="user[last_name]" id="last_name" required>
+                <label for="email">Email</label>
+                <input type="email" name="user[email]" id="email" required>
+                <label for="password">Password</label>
+                <input type="password" name="user[password]" id="password" required>
+                <label for="role">Role</label>
+                <input type="text" name="user[role]" id="role" required>
+                <input type="submit" value="Signup">
+            </fieldset>
+        </form>
+    </div>
+  </main>
+  </body>
+</html>
