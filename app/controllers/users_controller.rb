@@ -44,7 +44,6 @@ class UsersController < ApplicationController
 
     get '/admin/profile' do
         if logged_in?
-            user = User.find_by_id(current_user.id)
             erb :'users/admin', :layout => :admin_screen
         else
             erb :'users/admin_signup', :layout => :homepage_screen
