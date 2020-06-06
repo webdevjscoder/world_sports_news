@@ -48,7 +48,7 @@ a {
 main#homepage-content {
     box-sizing: border-box;
     margin-top: 30px;
-    margin-left: 28px;
+    margin-left: 0px;
 }
 
 section.team-container {
@@ -57,7 +57,6 @@ section.team-container {
 }
 
 div.team-info {
-    border: 1px solid black;
     display: block;
     position: relative;
     right: 15px;
@@ -65,16 +64,18 @@ div.team-info {
 }
 
 ul.team-list {
-    border: 1px solid black;
     display: flex;
     flex-flow: column wrap;
     margin: 45px 45px;
-    padding: 0 90px;
+    padding: 35px 90px;
+    border: 1px solid #c0b4b4;
+    border-radius: 10px;
 }
 
 p.team-standing {
     text-align: right;
     text-decoration: underline;
+    font-weight: bolder;
 }
 
 li img {
@@ -95,6 +96,7 @@ li.team-name {
     left: 35px;
     font-size: 22px;
     font-family: Georgia, serif;
+    font-weight: bolder;
 }
 
 li.team-record {
@@ -104,6 +106,7 @@ li.team-record {
     bottom: 55px;
     left: 726px;
     width: fit-content;
+    font-weight: bolder;
 }
 
 li.team-news {
@@ -111,12 +114,16 @@ li.team-news {
     font-size: 26px;
     font-family: Georgia, serif;
     margin: 35px;
-    padding: 25px;
+    padding: 0 35px 15px;
 }
 
-span#copyright {
+span#layout-copyright {
     display: block;
     text-align: center;
     position: relative;
-    bottom: 25px;
+    background-color: #000;
+    bottom: 0px;
+    color: #fff;
+    height: 60px;
+    padding: 40px;
 }
