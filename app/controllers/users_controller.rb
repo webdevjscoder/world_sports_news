@@ -115,6 +115,7 @@ class UsersController < ApplicationController
     get '/profile/:id' do
         if logged_in?
             user = User.find_by_id(current_user.id)
+            @teams = Team.all
             @user_teams = user.teams.where("user_id == #{current_user.id}")
             erb :"users/profile"
         else
