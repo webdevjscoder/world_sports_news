@@ -100,17 +100,6 @@ class UsersController < ApplicationController
         redirect to "/profile/#{current_user.id}"
     end
 
-    # get '/admin/profile/:id' do
-    #     binding.pry
-    #     if logged_in?
-    #         user = User.find_by_id(current_user.id)
-    #         binding.pry
-    #         erb :'users/admin', :layout => :admin_screen
-    #     else
-    #         erb :'users/admin_signup', :layout => :homepage_screen
-    #     end
-    # end
-
     # shows user homepage when they login or create and account
     get '/profile/:id' do
         if logged_in?
