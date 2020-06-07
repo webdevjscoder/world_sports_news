@@ -4,13 +4,31 @@
     <section class="team-container">
         <% @user_teams.each do |team_info| %>
             <ul class="team-list">
-                <p class="team-standing">Team Record</p>
-                <li><img src="<%= team_info.logo %>" width="30px" height="30px">
+                <li class="team-standing">Team Record
+                <li class="img"><img src="<%= team_info.logo %>" width="30px" height="30px">
                 <li class="team-name"><%= team_info.name %>
                 <li class="team-record"><%= team_info.team_record %>
                 <li class="team-news"><%= team_info.news %>
-                <li><img class="team-img" src="https://res-4.cloudinary.com/ybmedia/image/upload/c_crop,h_840,w_1495,x_372,y_52/c_fill,f_auto,h_495,q_auto,w_880/v1/m/c/b/cb31f1bd10ca4ed99833b1c414fd12f9dd701b0c/13728929.jpg" width="786px" height="400px">
+                <li><img class="team-img" src="http://placekitten.com/980/450" width="100%" height="auto">
             </ul>
+            </ul>
+                <% comments = @team_comments.where(team_id: team_info.id) %>
+                    <% comments.each do |team_comment| %>
+                        <li><%= team_comment.comment.content %></li>
+                        <li><%= team_comment.comment.user.username %></li>
+                        <li><%= team_comment.id %></li>
+                </ul>
+                    <form action="/comments" method="POST">
+                        <label for="comments">Comments</label>
+                        <input type="hidden" name="team_id" value="<%= team_info.id %>">
+                        <textarea name="comment" placeholder="Say something..."></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+                    <form action="/comments/<%= team_comment.id %>/delete" method="POST">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="submit" value="Delete">
+                    </form>
+                <% end %>
         <% end %>
     </section>
 </div>

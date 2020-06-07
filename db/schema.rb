@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200605173436) do
+ActiveRecord::Schema.define(version: 20200606175027) do
 
   create_table "comments", force: :cascade do |t|
     t.string  "content"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20200605173436) do
 
   create_table "roles", force: :cascade do |t|
     t.string "role_name"
+  end
+
+  create_table "team_comments", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "comment_id"
   end
 
   create_table "teams", force: :cascade do |t|

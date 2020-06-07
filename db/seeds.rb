@@ -1,7 +1,3 @@
-User.create(username: "juancobian", email: "juancobian@gmail.com", password: "password")
-Team.create(name: "Dallas Cowboys", team_record: "1-5", news: "Is this current streak the end of the Dallas Cowboys' season?")
-Comment.create(content: "They are on a horrible streak and I believe they are out of the playoffs", user_id: 1)
-UserTeam.create(user_id: 1, team_id: 1)
 Team.create(name: "Atlanta Hawks", team_record: "20-47", news: "Not the best season for the Atlanta Hawks", logo: "https://i.pinimg.com/236x/0a/74/47/0a7447871d3c8af34b5c63b6d90ef554.jpg")
 Team.create(name: "Boston Celtics", team_record: "43-21", news: "Great season for the Boston Celtics, Who wouldn't be pleased with their season so far?", logo: "https://i.pinimg.com/236x/6e/bc/c6/6ebcc6b4714a5b47e2ed6a3ccdfb1b48.jpg")
 Team.create(name: "Charlotte Hornets", team_record: "23-42", news: "Charolette hoping season ends soon. Fans can't be more happy to end the season now", logo: "https://i.pinimg.com/236x/85/54/bc/8554bc0ea6db3c9a70cdb79e7005d2ca.jpg")

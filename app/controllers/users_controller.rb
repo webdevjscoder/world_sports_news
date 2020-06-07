@@ -94,7 +94,7 @@ class UsersController < ApplicationController
             if !existing_teams.exists?(team_id)
                 user_teams << UserTeam.create(user_id: current_user.id, team_id: team_id.to_i)
             else
-                user_teams
+                user_teams.wher
             end
         end
         redirect to "/profile/#{current_user.id}"
@@ -117,6 +117,8 @@ class UsersController < ApplicationController
             user = User.find_by_id(current_user.id)
             @teams = Team.all
             @user_teams = user.teams.where("user_id == #{current_user.id}")
+            @team_comments = TeamComment.all
+            binding.pry
             erb :"users/profile"
         else
             erb :'users/login', :layout => :homepage_screen
@@ -153,6 +155,7 @@ class UsersController < ApplicationController
     get '/logout' do
         session.clear
         @teams = Team.all
+        @team_comments = TeamComment.all
         erb :'users/homepage', :layout => :homepage_screen
     end
     
