@@ -1,7 +1,7 @@
 <div class="team-info">
     <h1>Welcome to World Sports News</h1>
-        <section class="team-container">
-            <% @teams.each do |team_info| %>
+     <div class="team-content-container">
+        <% @teams.each do |team_info| %>
                 <ul class="team-list">
                     <p class="team-standing">Team Record</p>
                     <li><img src="<%= team_info.logo %>" width="30px" height="30px">
@@ -9,6 +9,19 @@
                     <li class="team-record"><%= team_info.team_record %>
                     <li class="team-news"><%= team_info.news %>
                 </ul>
-            <% end %>
-        </section>
+                <ul>
+                    <% comments = @team_comments.where(team_id: team_info.id) %>
+                        <% comments.each do |team_comment| %>
+                            <li><%= team_comment.comment.content %></li>
+                            <li><%= team_comment.id %></li>
+                        <% end %>
+                </ul>
+                    <form action="/comments" method="POST">
+                        <label for="comments">Comments</label>
+                        <input type="hidden" name="team_id" value="<%= team_info.id %>">
+                        <textarea name="comment" placeholder="Say something..."></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+        <% end %>
     </div>
+</div>

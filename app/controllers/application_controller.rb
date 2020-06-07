@@ -12,6 +12,7 @@ class ApplicationController < Sinatra::Base
     # renders the welcome page where user either logs in or signs up
     get '/' do
         @teams = Team.all
+        @team_comments = TeamComment.all
         erb :'users/homepage', :layout => :homepage_screen
     end
 
@@ -24,7 +25,7 @@ class ApplicationController < Sinatra::Base
 
         # sets current_user
         def current_user
-            @current_user ||= User.find(session[:user_id]) if session[:user_id]
+             @current_user ||= User.find(session[:user_id]) if session[:user_id]
         end
     end 
 
