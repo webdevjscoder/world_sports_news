@@ -102,6 +102,10 @@ input[type="submit"] {
     left: 115px;
 }
 
+.user-greeting {
+    border: 1px solid black;
+}
+
 span#copyright {
     color: #fff;
 }
