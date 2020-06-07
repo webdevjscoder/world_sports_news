@@ -198,6 +198,10 @@ label[for="comments"] {
     margin-bottom: 20px;
 }
 
+input.add-or-delete-team {
+    margin-bottom: 20px;
+}
+
 span#copyright {
     display: block;
     text-align: center;
