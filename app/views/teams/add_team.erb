@@ -1,14 +1,21 @@
-<h1>You are in the teams page!</h1>
-<h2>Select your favorite teams, <%= current_user.username %></h2>
-
-<form action="/add_team" method="post">
-<label for="nba"><h3>NBA</h3></label><br>
-<% @teams.each do |team| %>
-    <% if !@selected_ids.include?(team.id)  %>
-        <input type="checkbox" name="[team_ids][]" id="<%= team.id %>" value="<%= team.id %>"><%= team.name %>
+<!doctype html>
+<html>
+  <head>
+    <title>Sports News</title>
+    <link rel="stylesheet" href="/stylesheets/form.css">
+  </head>
+  <body>
+  <h1 class="user-greeting">Select your favorite teams, <%= current_user.username %></h1>
+    <form action="/add_team" method="post" class="select-teams-form">
+        <label for="nba"><h2>NBA</h2></label><br>
+            <% @teams.each do |team| %>
+            <% if !@selected_ids.include?(team.id)  %>
+                <input type="checkbox" name="[team_ids][]" id="<%= team.id %>" value="<%= team.id %>"><%= team.name %>
+                <br>
+            <% end %>
+        <% end %>
         <br>
-    <% end %>
-<% end %>
-    <br>
-    <input type="submit" value="Submit">
-</form>
+            <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

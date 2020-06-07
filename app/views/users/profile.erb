@@ -11,25 +11,29 @@
                 <li class="team-news"><%= team_info.news %>
                 <li><img class="team-img" src="http://placekitten.com/980/450" width="100%" height="auto">
             </ul>
-            </ul>
+            <div class="comments-container">
+            <label for="comments">Comments</label>
+            <div class="comment-accessories">
+            <section class="comments-section">
                 <% comments = @team_comments.where(team_id: team_info.id) %>
                     <% comments.each do |team_comment| %>
-                        <li><%= team_comment.comment.content %></li>
-                        <li><%= team_comment.comment.user.username %></li>
-                        <li><%= team_comment.id %></li>
-                </ul>
-                    <form action="/comments" method="POST">
-                        <label for="comments">Comments</label>
+                        <form action="/comments/<%= team_comment.id %>/delete" method="POST">
+                            <input type="hidden" name="_method" value="delete">
+                            <button type="submit" id="delete"><img src="https://img.icons8.com/officexs/16/000000/delete-sign.png"/></button>
+                        </form>
+                        <div class="comment-and-edit">
+                            <span><%= team_comment.comment.user.username %>: <%= team_comment.comment.content %></span>
+                            <a href="/comments/<%= team_comment.id %>/edit" class="edit-comment"><button><img src="https://img.icons8.com/ios-glyphs/16/000000/edit.png"/></button></a>
+                        </div>
+                    <% end %>
+                </div>
+                    <form action="/comments" method="POST" class="comment-box">
                         <input type="hidden" name="team_id" value="<%= team_info.id %>">
                         <textarea name="comment" placeholder="Say something..."></textarea>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Submit" class="comment-box-submit-button">
                     </form>
-                    <form action="/comments/<%= team_comment.id %>/delete" method="POST">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="submit" value="Delete">
-                    </form>
-                <% end %>
-        <% end %>
-    </section>
-</div>
+                </div>
+            <% end %>
+        </section>
+    </div>
 <% end %>

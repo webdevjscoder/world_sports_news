@@ -118,7 +118,6 @@ class UsersController < ApplicationController
             @teams = Team.all
             @user_teams = user.teams.where("user_id == #{current_user.id}")
             @team_comments = TeamComment.all
-            binding.pry
             erb :"users/profile"
         else
             erb :'users/login', :layout => :homepage_screen

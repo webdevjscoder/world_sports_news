@@ -45,6 +45,11 @@ a {
     font-family: Georgia, serif;
 }
 
+a.edit-comment {
+    color: rgb(51, 51, 182);
+    text-decoration: underline;
+}
+
 main#homepage-content {
     box-sizing: border-box;
     margin-top: 30px;
@@ -70,7 +75,6 @@ ul.team-list {
     padding: 35px 90px;
     border: 1px solid #c0b4b4;
     border-radius: 10px;
-    width: 980px;
 }
 
 li.team-standing {
@@ -117,13 +121,6 @@ li.team-news {
     padding: 0 35px 15px;
 }
 
-li.comments {
-    font-size: 15px;
-    font-weight: bold;
-    font-family: Georgia, serif;
-    padding: 15px 0;
-}
-
  li.textarea textarea {
     display: block;
     width: 35%;
@@ -133,6 +130,83 @@ li.comments {
     line-height: 25px;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+div.comments-container {
+    width: auto;
+    display: block;
+    margin: 0 45px;
+}
+
+.comments-section {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.comment-and-edit {
+    display: block;
+    position: relative;
+    left: 32px;
+    bottom: 25px;
+}
+
+#delete {
+    background-color: #fff;
+    border: none;
+}
+
+#delete:hover {
+    cursor: pointer;
+}
+
+.edit-comment {
+    padding: 0 15px;
+    text-decoration: none;
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.edit-comment button {
+    background-color: #fff;
+    border: none;
+}
+
+.edit-comment button:hover {
+    cursor: pointer;
+}
+
+label[for="comments"] {
+    display: block;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.comment-box {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.comment-box textarea {
+    width: 250px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.comment-box-submit-button {
+    width: fit-content;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+span#copyright {
+    display: block;
+    text-align: center;
+    position: relative;
+    background-color: #000;
+    bottom: 0px;
+    color: #fff;
+    height: 60px;
+    padding: 40px;
 }
 
 span#layout-copyright {
