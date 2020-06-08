@@ -1,6 +1,6 @@
-<% if !current_user.teams.empty? %>
 <div class="team-info">
     <h1>Welcome, <%= current_user.username %></h1>
+    <% if !current_user.teams.empty? %>
     <section class="team-container">
         <% @user_teams.each do |team_info| %>
             <ul class="team-list">
@@ -17,14 +17,16 @@
             <section class="comments-section">
                 <% comments = @team_comments.where(team_id: team_info.id) %>
                     <% comments.each do |team_comment| %>
-                        <form action="/comments/<%= team_comment.id %>/delete" method="POST">
-                            <input type="hidden" name="_method" value="delete">
-                            <button type="submit" id="delete"><img src="https://img.icons8.com/officexs/16/000000/delete-sign.png"/></button>
-                        </form>
-                        <div class="comment-and-edit">
-                            <span><%= team_comment.comment.user.username %>: <%= team_comment.comment.content %></span>
+                    <span><%= team_comment.comment.user.username %>: <%= team_comment.comment.content %></span>
+                        <% if current_user.id == team_comment.comment.user.id %>
+                        <div class="actions">
+                            <form action="/comments/<%= team_comment.id %>/delete" method="POST">
+                                <input type="hidden" name="_method" value="delete">
+                                <button type="submit" id="delete"><img src="https://img.icons8.com/officexs/16/000000/delete-sign.png"/></button>
+                            </form> |
                             <a href="/comments/<%= team_comment.id %>/edit" class="edit-comment"><button><img src="https://img.icons8.com/ios-glyphs/16/000000/edit.png"/></button></a>
                         </div>
+                        <% end %>
                     <% end %>
                 </div>
                     <form action="/comments" method="POST" class="comment-box">

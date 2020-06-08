@@ -12,7 +12,8 @@ class UsersController < ApplicationController
 
     # creates a new user and logs them in
     post '/signup' do
-        user = User.create(params[:user])
+        user = User.new(first_name: params[:user][:first_name], last_name: params[:user][:last_name], username: params[:user][:username], email: params[:user][:email], password: params[:user][:password])
+        user.save
         if user != false
             session[:user_id] = user.id
             erb :"users/profile"
@@ -62,7 +63,7 @@ class UsersController < ApplicationController
     # verifies the user's login via their password
     post '/login' do
         user = User.find_by(email: params[:user][:email]).try(:authenticate, params[:user][:password])
-        if user != false
+        if user == true
             session[:user_id] = user.id
             redirect to "/profile/#{user.id}"
         else
@@ -127,8 +128,8 @@ class UsersController < ApplicationController
     end
 
     put '/profile/:id' do
-        user = User.find_by_id(params[:id])
-        user.update(params[:user])
+        user = User.find_by_id(params[:id].to_i)
+        user.update(username: params[:user][:username], email: params[:user][:email])
         redirect to "/profile/#{user.id}"
     end
 

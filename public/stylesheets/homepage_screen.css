@@ -143,11 +143,9 @@ div.comments-container {
     flex-flow: column wrap;
 }
 
-.comment-and-edit {
-    display: block;
-    position: relative;
-    left: 32px;
-    bottom: 25px;
+.comments-section span {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px 0;
 }
 
 #delete {
@@ -157,13 +155,6 @@ div.comments-container {
 
 #delete:hover {
     cursor: pointer;
-}
-
-.edit-comment {
-    padding: 0 15px;
-    text-decoration: none;
-    line-height: 22px;
-    font-size: 14px;
 }
 
 .edit-comment button {
@@ -200,6 +191,14 @@ label[for="comments"] {
 
 input.add-or-delete-team {
     margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+}
+
+.comment-accessories {
+    border-bottom: 1px solid #e5e5e5;
 }
 
 span#copyright {
