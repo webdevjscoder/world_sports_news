@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
     end
 
     # removes teams the user selects
-    post '/remove_teams' do
+    post '/remove-teams' do
         user = User.find_by_id(current_user.id)
         params[:team_ids].each do |team_id|
             team_to_delete = user.teams.where(["user_id = ? and team_id = ?", current_user.id, team_id.to_i])

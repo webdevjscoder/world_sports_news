@@ -5,7 +5,7 @@
                 <form action="/comments/<%= current_user.id %>" method="post" class="comment-box">
                     <input type="hidden" name="_method" value="put">
                     <input type="hidden" name="comment_id" value="<%= @comment_to_edit_id %>">
-                    <textarea type="text" name="comment" value="<%= @comment_to_edit %>"></textarea>
+                    <textarea type="text" name="comment"><%= @comment_to_edit %></textarea>
                     <input type="submit" value="Update" class="comment-box-submit-button">
                 </form>
             </section>

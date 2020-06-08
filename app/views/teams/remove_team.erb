@@ -1,6 +1,6 @@
 <h1>Unfollow Teams</h1>
 <form action="/remove-teams" method="post">
-<label for="football"><h3>NBA</h3></label><br>
+<label for="nba"><h3>NBA</h3></label><br>
 <%  @user_teams.each do |team| %>
         <input type="checkbox" name="[team_ids][]" id="<%= team.id %>" value="<%= team.id %>"><%= team.name %>
         <br>
