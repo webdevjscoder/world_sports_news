@@ -2,10 +2,14 @@ class CommentsController < ApplicationController
 
     post '/comments' do
         if logged_in?
-            comment = Comment.create(content: params[:comment], user_id: current_user.id)
-            commented_team = params[:team_id].to_i
-            @team_comment = TeamComment.create(team_id: commented_team, comment_id: comment.id)
-            redirect to "/profile/#{current_user.id}"
+            if !params[:comment]
+                comment = Comment.create(content: params[:comment], user_id: current_user.id)
+                commented_team = params[:team_id].to_i
+                @team_comment = TeamComment.create(team_id: commented_team, comment_id: comment.id)
+                redirect to "/profile/#{current_user.id}"
+            else
+                redirect to "/profile/#{current_user.id}"
+            end
         else
             erb :'users/login', :layout => :homepage_screen
         end

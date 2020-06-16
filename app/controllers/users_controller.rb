@@ -88,14 +88,10 @@ class UsersController < ApplicationController
 
     # add team to current user
     post '/add_team' do
-        user_teams = []
-        user = User.find_by_id(current_user.id)
-        existing_teams = user.teams.where("user_id == #{current_user.id}")
+        existing_teams = current_user.teams
         params[:team_ids].each do |team_id|
             if !existing_teams.exists?(team_id)
-                user_teams << UserTeam.create(user_id: current_user.id, team_id: team_id.to_i)
-            else
-                user_teams.wher
+                current_user.user_teams.create(team_id: team_id.to_i)
             end
         end
         redirect to "/profile/#{current_user.id}"
